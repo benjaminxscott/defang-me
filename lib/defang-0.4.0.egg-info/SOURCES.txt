@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+defang/__init__.py
+defang/bin.py
+defang.egg-info/PKG-INFO
+defang.egg-info/SOURCES.txt
+defang.egg-info/dependency_links.txt
+defang.egg-info/entry_points.txt
+defang.egg-info/top_level.txt

@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: defang
+Version: 0.4.0
+Summary: Defangs and refangs malicious URLs
+Home-page: https://www.bitbucket.org/johannestaas/defang
+Author: Johan Nestaas
+Author-email: johannestaas@gmail.com
+License: GPLv3+
+Description: defang
+        ======
+        
+        Defangs and refangs malicious URLs
+        
+        Usage
+        -----
+        
+        - As a script: use the `defang` command to defang or "refang"
+          content, supporting
+          both stdin/stdout streams as well as to/from files on disk::
+        
+                $ echo http://evil.example.com/malicious.php | defang
+                hXXp://evil.example[.]com/malicious.php
+        
+        - As a library::
+        
+                >>> from defang import defang
+                >>> url = "http://evil.example.com/malicious.php"
+                >>> defang(url)
+                'hXXp://evil.example[.]com/malicious.php'
+        
+        Releases
+        --------
+        
+        0.4.0:
+          - added support for URIs with IPv4
+        0.3.0:
+          - added some regex fixes and arbitrary protocol defanging
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Environment :: Console
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
