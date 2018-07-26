@@ -1,6 +1,7 @@
 # builtins
 import webapp2
 import urllib
+import ujson #goog decided to rewrite the py lib for some reason?
 
 # external
 import defang
@@ -13,7 +14,19 @@ class AboutPage (webapp2.RequestHandler):
 class DefangerPage (webapp2.RequestHandler):
     def get(self ):
         self.response.headers["Content-Type"] = "text/html"
-        self.response.write("<b>TODO - form</b>")
+        html = """
+        <html>
+        <body>
+        <form action="/api/defang" method="post">
+        <div><input type="text" value="Your indicator" /></div>
+        <div><input type="submit" value="defang me" </div>
+
+        </form>
+        </body>
+        </html>
+        """
+        
+        self.response.write(html)
 
 class DefangerAPI (webapp2.RequestHandler):
         # FUTURE - refactor to endpoints
@@ -36,7 +49,7 @@ class DefangerAPI (webapp2.RequestHandler):
         else:
             resp_dict["transformed"] = defang.defang(indicator)
             
-        return self.response.write(resp_dict)
+        return self.response.write(ujson.dumps(resp_dict))
         
 
 app = webapp2.WSGIApplication([

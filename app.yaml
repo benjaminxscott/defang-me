@@ -5,3 +5,8 @@ threadsafe: true
 handlers:
 - url: /.*
   script: main.app
+
+libraries:
+- name: ujson
+  version: "latest"
+
