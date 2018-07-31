@@ -6,22 +6,19 @@ import ujson #goog decided to rewrite the py lib for some reason?
 # external
 import defang
 
-class AboutPage (webapp2.RequestHandler):
-    def get(self):
-        self.response.headers["Content-Type"] = "text/html"
-        self.response.write("online defanger - powered by <a href=https://pypi.org/project/defang/ python/defang>")
-
 class DefangerPage (webapp2.RequestHandler):
     def get(self ):
+        # FUTURE - use jinja/template
         self.response.headers["Content-Type"] = "text/html"
         html = """
         <html>
         <body>
         <form action="/api/defang" method="post">
-        <div><input type="text" value="Your indicator" /></div>
-        <div><input type="submit" value="defang me" </div>
+        <div><input type="text" name = 'indicator' placeholder="Your indicator" /></div>
+        <div><input type="submit" value="defang / refang me" </div>
 
         </form>
+        <p> online defanger (and refanger) for indicators - <a href="https://pypi.org/project/defang/"> Powered by python/defang </a></p> 
         </body>
         </html>
         """
@@ -53,8 +50,6 @@ class DefangerAPI (webapp2.RequestHandler):
         
 
 app = webapp2.WSGIApplication([
-    # TODO setup tls w/ schemes=["https"] and LE cert
-  webapp2.Route(r"/", handler=AboutPage,name = "about", methods=["GET"]),
-  webapp2.Route(r"/defang", handler = DefangerPage, methods=["GET"]),
+  webapp2.Route(r"/", handler = DefangerPage, methods=["GET"]),
   webapp2.Route(r"/api/defang", handler = DefangerAPI,methods=["POST"])
 ])
