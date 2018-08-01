@@ -1,0 +1,19 @@
+ <p> Defang and share malicious URLs - <a href="https://pypi.org/project/defang/"> Powered by python/defang </a></p> 
+
+<textarea required rows="4" cols="50" name = 'input_text' form="input_form" placeholder="Paste here"></textarea>
+      
+<form action="/" method="post" id="input_form" method="post" >
+  <input type="submit" value="Defang" >
+</form>
+     
+{% if defanged %}
+<div class defanged_output>
+<textarea rows="4" cols="50" id="defanged_text">
+{% for item in defanged %} 
+ {{item}}
+{% endfor %}
+</textarea>
+</div>
+{% include "copy.js" %}
+
+{% endif %}
