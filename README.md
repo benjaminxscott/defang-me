@@ -3,7 +3,6 @@
 Safely share indicators with other security researchers
 
 ## Deployment
-TODO - aws with lightsail
 
 TODO - gcp - notes from prior build on appengine?
 

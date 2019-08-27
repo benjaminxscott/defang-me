@@ -25,7 +25,6 @@ class DefangerPage (webapp2.RequestHandler):
     def post(self):
         indicators= self.request.get ("input_text")
         
-        # FUTURE - one click copy to clipboard btn
         # FUTURE - save off original to gist if user clicks 'get shareable link'
         # FUTURE - button with 'dangerous' styling to pull the orig content from gist and copy to clipboard
         
