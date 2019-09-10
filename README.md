@@ -4,7 +4,9 @@ Safely share indicators with other security researchers
 
 ## Deployment
 
-TODO - gcp - notes from prior build on appengine?
+Setup [a GCP project](https://cloud.google.com/python/getting-started/hello-world#before-you-begin)
+
+> gcloud app deploy
 
 ## Impetus
 In computer security, people often email around "indicators", which are things like IP addresses, domain names, URLs, and md5 digests.
